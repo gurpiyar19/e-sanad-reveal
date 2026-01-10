@@ -1,0 +1,92 @@
+.button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 3rem;
+    font-family: var(--font-family);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    font-style: italic;
+    color: #cc0066;
+    background: linear-gradient(180deg,
+            #FFB6C1 0%,
+            #FF69B4 30%,
+            #FF1493 70%,
+            #DB7093 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transform-origin: center;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    box-shadow:
+        0 6px 20px rgba(255, 20, 147, 0.35),
+        0 3px 8px rgba(0, 0, 0, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+    min-width: 220px;
+}
+
+/* Glossy shine effect */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 12px 12px 50% 50%;
+    pointer-events: none;
+}
+
+/* Hover State */
+.button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+        0 10px 30px rgba(255, 20, 147, 0.4),
+        0 5px 12px rgba(0, 0, 0, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Active State */
+.button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        0 4px 12px rgba(255, 20, 147, 0.3),
+        0 2px 6px rgba(0, 0, 0, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus State */
+.button:focus-visible {
+    outline: 3px solid rgba(255, 20, 147, 0.5);
+    outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .button {
+        padding: 0.875rem 2rem;
+        min-width: 180px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .button {
+        transition: none;
+    }
+
+    .button:hover {
+        transform: none;
+    }
+}
