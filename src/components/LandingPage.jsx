@@ -1,12 +1,14 @@
 import OfficialCard from './OfficialCard';
 
+const base = import.meta.env.BASE_URL;
+
 const officials = [
     {
         id: 1,
         name: 'Sh. Bhagwant Singh Mann',
         title: "Hon'ble Chief Minister",
         role: 'PATRON-IN-CHIEF',
-        image: '/officials/cm-punjab.jpg',
+        image: `${base}officials/cm-punjab.jpg`,
         position: 'left',
     },
     {
@@ -14,7 +16,7 @@ const officials = [
         name: 'Shri. Harjot Singh Bains',
         title: "Hon'ble Education Minister",
         role: "HON'BLE MINISTER",
-        image: '/officials/education-minister.jpg',
+        image: `${base}officials/education-minister.jpg`,
         position: 'right',
     },
     {
@@ -22,7 +24,7 @@ const officials = [
         name: 'Dr. Amarpal Singh, I.A.S. (Retd.)',
         title: 'Punjab School Education Board',
         role: 'CHAIRMAN',
-        image: '/officials/chairman.jpeg',
+        image: `${base}officials/chairman.jpeg`,
         position: 'left',
     },
     {
@@ -30,7 +32,7 @@ const officials = [
         name: 'Mr. Gurinder Singh Sodhi (PCS)',
         title: 'Punjab School Education Board',
         role: 'SECRETARY',
-        image: '/officials/secretary.png',
+        image: `${base}officials/secretary.png`,
         position: 'right',
     },
 ];
@@ -58,7 +60,7 @@ export default function LandingPage() {
             <div
                 className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.07]"
                 style={{
-                    backgroundImage: 'url(/logos/pseb.png)',
+                    backgroundImage: `url(${base}logos/pseb.png)`,
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: '350px',
@@ -71,12 +73,12 @@ export default function LandingPage() {
                     {/* Logos Row - brought closer together */}
                     <div className="flex justify-between items-center mb-4 px-4 md:px-8">
                         <img
-                            src="/logos/punjab-govt.png"
+                            src={`${base}logos/punjab-govt.png`}
                             alt="Government of Punjab"
                             className="h-14 md:h-16 w-auto object-contain"
                         />
                         <img
-                            src="/logos/pseb.png"
+                            src={`${base}logos/pseb.png`}
                             alt="Punjab School Education Board"
                             className="h-14 md:h-16 w-auto object-contain"
                         />

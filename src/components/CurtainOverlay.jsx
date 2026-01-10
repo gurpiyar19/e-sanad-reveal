@@ -27,7 +27,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
         locomotiveRef.current = new LocomotiveScroll({
             el: containerRef.current,
             smooth: true,
-            multiplier: 1,
+            multiplier: 0.8, // Slightly reduced for better performance
             lerp: 0.1,
         });
 
@@ -218,8 +218,8 @@ export default function CurtainOverlay({ onRevealComplete }) {
                 data-scroll-section
                 style={{ background: 'transparent' }}
             >
-                {/* Floating Particles */}
-                <Particles count={25} />
+                {/* Floating Particles - Reduced count for performance */}
+                <Particles count={15} />
 
                 {/* Left Curtain - Full height, no header */}
                 <div
@@ -284,12 +284,12 @@ export default function CurtainOverlay({ onRevealComplete }) {
                         {/* Logos - No spin animation */}
                         <div className="w-full flex justify-between items-start mb-4 mt-2">
                             <img
-                                src="/logos/punjab-govt.png"
+                                src={`${import.meta.env.BASE_URL}logos/punjab-govt.png`}
                                 alt="Government of Punjab"
                                 className="h-12 md:h-14 w-auto object-contain transition-opacity duration-300 hover:opacity-80"
                             />
                             <img
-                                src="/logos/pseb.png"
+                                src={`${import.meta.env.BASE_URL}logos/pseb.png`}
                                 alt="Punjab School Education Board"
                                 className="h-12 md:h-14 w-auto object-contain transition-opacity duration-300 hover:opacity-80"
                             />
@@ -346,7 +346,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
                         {/* Footer with NIC - glow pulse */}
                         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3 pt-3 border-t border-amber-200/50 mt-2">
                             <img
-                                src="/logos/nic.png"
+                                src={`${import.meta.env.BASE_URL}logos/nic.png`}
                                 alt="National Informatics Centre"
                                 className="h-10 md:h-12 w-auto object-contain glow-pulse"
                             />
