@@ -331,7 +331,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
 
                         {/* Punjabi Inauguration Text - Black */}
                         <p className="font-punjabi text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-1">
-                            ਦਾ ਉਦਘਾਟਨ ਸਮਾਰੋਹ
+                            ਦਾ ਉਦਘਾਟਨ
                         </p>
 
                         {/* "ਵੱਲੋਂ" in small letters */}
