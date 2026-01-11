@@ -5,6 +5,9 @@ import LocomotiveScroll from 'locomotive-scroll';
 import GlareHover from './GlareHover';
 import Particles from './ParticlesBackground';
 import SplashCursor from './SplashCursor';
+
+// Toggle: Set to true to enable splash cursor effect
+const ENABLE_SPLASH_CURSOR = false;
 import CurtainEdge, { CurtainEdgeRight } from './CurtainEdge';
 import StarBorder from './StarBorder';
 
@@ -205,7 +208,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
             data-scroll-container
             className="fixed inset-0 z-[1000] overflow-hidden"
         >
-            <SplashCursor />
+            {ENABLE_SPLASH_CURSOR && <SplashCursor />}
 
             {/* Scroll Progress Indicator */}
             <div className="scroll-indicator">
@@ -354,12 +357,12 @@ export default function CurtainOverlay({ onRevealComplete }) {
 
                         {/* Chairman's Name - Gold/Amber */}
                         <p className="font-punjabi text-[#d97706] text-lg md:text-xl font-bold mb-0">
-                            ਡਾ. ਅਮਰਪਾਲ ਸਿੰਘ, <span className="text-sm md:text-base">I.A.S. (Retd.)</span>
+                            ਡਾ. ਅਮਰਪਾਲ ਸਿੰਘ ਜੀ
                         </p>
 
                         {/* Chairman's Title */}
                         <p className="font-punjabi text-gray-800 text-xs md:text-sm font-medium mb-4">
-                            ਚੇਅਰਮੈਨ ਪੰਜਾਬ ਸਕੂਲ ਸਿੱਖਿਆ ਬੋਰਡ
+                            ਚੇਅਰਮੈਨ, ਪੰਜਾਬ ਸਕੂਲ ਸਿੱਖਿਆ ਬੋਰਡ
                         </p>
 
                         {/* Launch Button */}
@@ -390,8 +393,8 @@ export default function CurtainOverlay({ onRevealComplete }) {
                         </p>
 
                         {/* E-Sanad */}
-                        <p className="text-gray-900 text-xl md:text-2xl font-bold mb-8">
-                            E-Sanad
+                        <p className="text-gray-900 text-lg md:text-xl font-bold mb-8">
+                            E-Sanad Services for PSEB
                         </p>
 
                         {/* Footer: NIC Logo + Initiative Text */}
