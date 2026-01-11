@@ -28,8 +28,8 @@ export default function CurtainOverlay({ onRevealComplete }) {
         locomotiveRef.current = new LocomotiveScroll({
             el: containerRef.current,
             smooth: true,
-            multiplier: 0.8, // Slightly reduced for better performance
-            lerp: 0.1,
+            multiplier: 0.8,
+            lerp: 0.08,  // Optimized from 0.1 for smoother performance
         });
 
         locomotiveRef.current.on('scroll', (args) => {
