@@ -195,6 +195,11 @@ export default function CurtainOverlay({ onRevealComplete }) {
             opacity: 0,
             duration: 0.4,
         }, 2.4);
+
+        // Redirect to PSEB e-Sanad page after curtains start opening
+        setTimeout(() => {
+            window.location.href = 'https://www.pseb.ac.in/esanad';
+        }, 1200);
     };
 
 
@@ -273,6 +278,8 @@ export default function CurtainOverlay({ onRevealComplete }) {
                 >
                     <div
                         ref={centerCardRef}
+                        onMouseMove={handleCardMouseMove}
+                        onMouseLeave={handleCardMouseLeave}
                         className="p-6 md:p-8 glass-card text-center flex flex-col items-center w-full relative"
                         style={{ transformStyle: 'preserve-3d' }}
                         role="dialog"
@@ -284,12 +291,12 @@ export default function CurtainOverlay({ onRevealComplete }) {
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/punjab-govt.png`}
                                 alt="Government of Punjab"
-                                className="h-14 md:h-16 w-auto object-contain"
+                                className="h-16 md:h-20 w-auto object-contain"
                             />
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/pseb.png`}
                                 alt="Punjab School Education Board"
-                                className="h-14 md:h-16 w-auto object-contain"
+                                className="h-16 md:h-20 w-auto object-contain"
                             />
                         </div>
 
