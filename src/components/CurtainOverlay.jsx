@@ -196,11 +196,6 @@ export default function CurtainOverlay({ onRevealComplete }) {
             opacity: 0,
             duration: 0.4,
         }, 2.4);
-
-        // Redirect to PSEB e-Sanad page after curtains start opening
-        setTimeout(() => {
-            window.location.href = 'https://www.pseb.ac.in/esanad';
-        }, 1200);
     };
 
 
@@ -318,14 +313,12 @@ export default function CurtainOverlay({ onRevealComplete }) {
                                 className="h-16 md:h-20 w-auto object-contain flex-shrink-0"
                             />
 
-                            {/* Center Title */}
+                            {/* Center: Digital verification text */}
                             <div className="flex-grow flex flex-col items-center justify-center px-4">
-                                <h2 className="text-gray-900 text-xl md:text-3xl font-bold font-ceremonial leading-tight mb-1 whitespace-nowrap">
-                                    Punjab School Education Board
+                                <h2 className="text-gray-900 text-base md:text-lg font-bold leading-tight text-center">
+                                    Digital verification of PSEB academic certificates
+                                    <br />through E-Sanad portal for use abroad
                                 </h2>
-                                <h3 className="text-gray-800 text-lg md:text-xl font-semibold tracking-wide leading-tight">
-                                    Launches
-                                </h3>
                             </div>
 
                             {/* Right Logo */}
@@ -336,29 +329,23 @@ export default function CurtainOverlay({ onRevealComplete }) {
                             />
                         </div>
 
-                        {/* Description Block */}
-                        <h4 className="text-gray-900 text-lg md:text-2xl font-bold leading-relaxed w-full mb-2">
-                            End To End Online Verification of PSEB Educational Certificates
-                        </h4>
-
-                        <p className="text-gray-700 font-semibold mb-1">
-                            Through
+                        {/* Punjabi Inauguration Text - Black */}
+                        <p className="font-punjabi text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-2">
+                            ਦਾ ਉਦਘਾਟਨ
                         </p>
 
-                        {/* Stylized e-Sanad Portal Text */}
-                        <div className="my-3 transform scale-110">
-                            <span className="font-handwriting text-5xl md:text-7xl text-gray-800 mr-3">e - </span>
-                            <span className="font-handwriting text-5xl md:text-7xl text-[#ea580c] mr-3">Sanad</span>
-                            <span className="font-handwriting text-5xl md:text-7xl text-[#0ea5e9]">Portal</span>
-                        </div>
+                        {/* Minister's Name - Gold/Amber */}
+                        <p className="font-punjabi text-[#d97706] text-xl md:text-2xl font-bold mb-1">
+                            ਸ. ਹਰਜੋਤ ਸਿੰਘ ਬੈਂਸ ਜੀ
+                        </p>
 
-                        {/* Sub-text - Forced Single Line */}
-                        <p className="text-gray-800 text-sm md:text-base font-medium w-full whitespace-nowrap mb-8 overflow-visible">
-                            (Online Attestation and Apostille of PSEB Educational Certificates for use Abroad)
+                        {/* Minister's Title */}
+                        <p className="font-punjabi text-gray-800 text-base md:text-lg font-medium mb-6">
+                            ਸਿੱਖਿਆ ਮੰਤਰੀ, ਪੰਜਾਬ ਸਰਕਾਰ
                         </p>
 
                         {/* Launch Button */}
-                        <div className="mb-8 relative z-50">
+                        <div className="mb-6 relative z-50">
                             <GlareHover
                                 onClick={handleReveal}
                                 width="auto"
@@ -379,64 +366,26 @@ export default function CurtainOverlay({ onRevealComplete }) {
                             </GlareHover>
                         </div>
 
-                        {/* Date */}
-                        <p className="text-gray-900 font-bold text-xl mb-10">
-                            Date: 12th January 2026
+                        {/* Date in Punjabi */}
+                        <p className="font-punjabi text-gray-700 text-base md:text-lg font-medium mb-2">
+                            ਸੋਮਵਾਰ, 12 ਜਨਵਰੀ 2026
                         </p>
 
-                        {/* Footer Logos Grid - Perfectly Symmetrical */}
-                        <div className="w-full grid grid-cols-3 items-end border-t border-gray-200 pt-6 mt-auto">
+                        {/* E-Sanad */}
+                        <p className="text-gray-900 text-xl md:text-2xl font-bold mb-8">
+                            E-Sanad
+                        </p>
 
-                            {/* Left: MEA Logo */}
-                            <div className="flex flex-col items-center justify-end">
-                                <img
-                                    /* User needs to add mea-logo.png */
-                                    src={`${import.meta.env.BASE_URL}logos/mea-logo.png`}
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.nextSibling.style.display = 'block';
-                                    }}
-                                    alt="Ministry of External Affairs"
-                                    className="h-14 md:h-16 w-auto object-contain mb-2"
-                                />
-                                <div className="hidden text-xs text-gray-400 text-center border p-1 rounded">
-                                    [Add mea-logo.png]
-                                </div>
-                                <span className="text-[11px] text-gray-800 font-bold text-center leading-tight">
-                                    Ministry of External<br />Affairs
-                                </span>
-                            </div>
-
-                            {/* Center: e-Sanad Box Logo */}
-                            <div className="flex flex-col items-center justify-end">
-                                <img
-                                    /* User needs to add esanad-logo.png */
-                                    src={`${import.meta.env.BASE_URL}logos/esanad-logo.png`}
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.nextSibling.style.display = 'flex';
-                                    }}
-                                    alt="e-Sanad"
-                                    className="h-12 md:h-14 w-auto object-contain mb-2"
-                                />
-                                {/* Fallback for e-Sanad logo if missing */}
-                                <div className="hidden h-10 w-24 bg-gray-900 items-center justify-center text-amber-500 font-bold text-sm mb-2 rounded">
-                                    e-SANAD
-                                </div>
-                                <p className="text-gray-800 text-[11px] md:text-xs font-bold text-center leading-tight">
-                                    An Initiative of Ministry of External Affairs
-                                </p>
-                            </div>
-
-                            {/* Right: NIC Logo */}
-                            <div className="flex flex-col items-center justify-end">
-                                <img
-                                    src={`${import.meta.env.BASE_URL}logos/nic.png`}
-                                    alt="NIC"
-                                    className="h-12 md:h-14 w-auto object-contain mb-2"
-                                />
-                                {/* Placeholder text to balance the symmetry visually if needed, usually NIC just has the logo */}
-                            </div>
+                        {/* Footer: NIC Logo + Initiative Text */}
+                        <div className="w-full flex items-center justify-center gap-4 border-t border-gray-200 pt-6 mt-auto">
+                            <img
+                                src={`${import.meta.env.BASE_URL}logos/nic.png`}
+                                alt="NIC"
+                                className="h-10 md:h-12 w-auto object-contain"
+                            />
+                            <span className="text-gray-700 text-sm md:text-base font-medium">
+                                An initiative of Ministry of External Affairs
+                            </span>
                         </div>
                     </div>
                 </StarBorder>

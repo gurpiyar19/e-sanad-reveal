@@ -1,176 +1,123 @@
-import OfficialCard from './OfficialCard';
+import { useEffect } from 'react';
 
 const base = import.meta.env.BASE_URL;
 
-const officials = [
-    {
-        id: 1,
-        name: 'Sh. Bhagwant Singh Mann',
-        title: "Hon'ble Chief Minister",
-        role: 'PATRON-IN-CHIEF',
-        image: `${base}officials/cm-punjab.jpg`,
-        position: 'left',
-    },
-    {
-        id: 2,
-        name: 'Shri. Harjot Singh Bains',
-        title: "Hon'ble Education Minister",
-        role: "HON'BLE MINISTER",
-        image: `${base}officials/education-minister.jpg`,
-        position: 'right',
-    },
-    {
-        id: 3,
-        name: 'Dr. Amarpal Singh, I.A.S. (Retd.)',
-        title: 'Punjab School Education Board',
-        role: 'CHAIRMAN',
-        image: `${base}officials/chairman.jpeg`,
-        position: 'left',
-    },
-    {
-        id: 4,
-        name: 'Mr. Gurinder Singh Sodhi (PCS)',
-        title: 'Punjab School Education Board',
-        role: 'SECRETARY',
-        image: `${base}officials/secretary.png`,
-        position: 'right',
-    },
-];
-
 export default function LandingPage() {
+    // Add smooth scroll behavior
+    useEffect(() => {
+        document.documentElement.style.scrollBehavior = 'smooth';
+    }, []);
+
     return (
-        <main className="min-h-screen relative overflow-hidden">
-            {/* Gradient Background - White to Yellow, modernized */}
+        <main className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center">
+            {/* Light Blue Background */}
             <div
                 className="absolute inset-0 z-0"
                 style={{
-                    background: 'linear-gradient(135deg, #ffffff 0%, #fefcf3 20%, #fef9e7 40%, #fef3c7 60%, #fde68a 80%, #fcd34d 100%)',
+                    background: 'linear-gradient(180deg, #d4e8ed 0%, #c8e1e8 50%, #bddae3 100%)',
                 }}
             />
 
-            {/* Subtle mesh gradient overlay for modern look */}
-            <div
-                className="absolute inset-0 z-0 opacity-40"
-                style={{
-                    background: 'radial-gradient(ellipse at 20% 20%, rgba(251, 191, 36, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 40%)',
-                }}
-            />
+            {/* Main Content Card */}
+            <div className="relative z-10 w-[95%] max-w-[900px] mx-auto px-6 py-10 text-center">
 
-            {/* Watermark PSEB logo in center */}
-            <div
-                className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.07]"
-                style={{
-                    backgroundImage: `url(${base}logos/pseb.png)`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: '350px',
-                }}
-            />
+                {/* Header Row: Logo - Content - Logo */}
+                <div className="flex items-start justify-between mb-6">
+                    {/* Left Logo */}
+                    <img
+                        src={`${base}logos/punjab-govt.png`}
+                        alt="Government of Punjab"
+                        className="h-16 md:h-20 w-auto object-contain"
+                    />
 
-            {/* Header with Punjab Govt logo (left) and PSEB logo (right) */}
-            <header className="relative z-10 py-8 px-4">
-                <div className="max-w-4xl mx-auto">
-                    {/* Logos Row - brought closer together */}
-                    <div className="flex justify-between items-center mb-4 px-4 md:px-8">
-                        <img
-                            src={`${base}logos/punjab-govt.png`}
-                            alt="Government of Punjab"
-                            className="h-14 md:h-16 w-auto object-contain"
-                        />
-                        <img
-                            src={`${base}logos/pseb.png`}
-                            alt="Punjab School Education Board"
-                            className="h-14 md:h-16 w-auto object-contain"
-                        />
-                    </div>
-                    {/* Title */}
-                    <div className="text-center">
-                        <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
+                    {/* Center Content */}
+                    <div className="flex-grow px-4">
+                        <h1 className="text-blue-900 text-xl md:text-3xl font-bold leading-tight mb-1">
                             Punjab School Education Board
                         </h1>
-                        <p className="text-gray-600 text-sm md:text-base mt-1">
-                            Vidya Bhawan, Phase-8, SAS Nagar (Mohali), India
-                        </p>
+                        <h2 className="text-gray-800 text-lg md:text-2xl font-semibold mb-2">
+                            Launches
+                        </h2>
+                        <h3 className="text-gray-900 text-base md:text-xl font-bold leading-relaxed">
+                            End To End Online Verification of PSEB Educational Certificates
+                            <br />Through
+                        </h3>
                     </div>
+
+                    {/* Right Logo */}
+                    <img
+                        src={`${base}logos/pseb.png`}
+                        alt="Punjab School Education Board"
+                        className="h-16 md:h-20 w-auto object-contain"
+                    />
                 </div>
-            </header>
 
-            {/* Main Content - Reference Layout */}
-            <section className="relative z-10 px-4 py-8">
-                <div className="max-w-6xl mx-auto">
-                    {/* Grid: 2 officials on left, center content, 2 officials on right */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-8 items-center">
-
-                        {/* Left Column - CM and Chairman with yellow gradient */}
-                        <div className="flex flex-col gap-6">
-                            <div className="rounded-xl bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 p-[2px] shadow-lg">
-                                <OfficialCard official={officials[0]} />
-                            </div>
-                            <div className="rounded-xl bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 p-[2px] shadow-lg">
-                                <OfficialCard official={officials[2]} />
-                            </div>
-                        </div>
-
-                        {/* Center Column - Main Text and Visit Link */}
-                        <div className="text-center px-4">
-                            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-orange-600 leading-relaxed mb-8">
-                                Punjab School education board launches<br />
-                                end to end online verification of<br />
-                                documents for foreign country through e-sanad
-                            </h2>
-
-                            {/* Visit E-Sanad - Minimal hyperlink */}
-                            <a
-                                href="https://esanadtrg.punjab.nic.in"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-                                    inline-flex items-center gap-2
-                                    text-blue-600 hover:text-blue-800
-                                    text-base md:text-lg font-medium
-                                    underline underline-offset-4 decoration-1
-                                    transition-colors duration-200
-                                "
-                            >
-                                Visit E-Sanad
-                                <svg
-                                    className="w-4 h-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                    />
-                                </svg>
-                            </a>
-                        </div>
-
-                        {/* Right Column - Education Minister and Secretary with yellow gradient */}
-                        <div className="flex flex-col gap-6">
-                            <div className="rounded-xl bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 p-[2px] shadow-lg">
-                                <OfficialCard official={officials[1]} />
-                            </div>
-                            <div className="rounded-xl bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 p-[2px] shadow-lg">
-                                <OfficialCard official={officials[3]} />
-                            </div>
-                        </div>
-                    </div>
+                {/* Stylized e-Sanad Portal Text */}
+                <div className="my-4">
+                    <span className="font-handwriting text-5xl md:text-7xl text-gray-800 mr-2">e - </span>
+                    <span className="font-handwriting text-5xl md:text-7xl text-[#ea580c]">Sanad</span>
+                    <span className="font-handwriting text-5xl md:text-7xl text-[#0ea5e9] ml-2">Portal</span>
                 </div>
-            </section>
 
-            {/* Footer */}
-            <footer className="relative z-10 py-6 px-4 text-center">
-                <p className="text-gray-700 text-sm">
-                    © 2026 Punjab School Education Board. All rights reserved.
+                {/* Sub-text */}
+                <p className="text-[#ea580c] text-sm md:text-lg font-bold mb-6">
+                    (Online Attestation and Apostille of PSEB Educational Certificates for use Abroad)
                 </p>
-                <p className="text-gray-600 text-xs mt-1">
-                    An initiative of Ministry of External Affairs
+
+                {/* Date */}
+                <p className="text-gray-800 text-base md:text-lg font-semibold mb-8">
+                    Date: 12th January 2026
                 </p>
-            </footer>
+
+                {/* e-SANAD Logo */}
+                <div className="flex justify-center mb-4">
+                    <img
+                        src={`${base}logos/esanad-logo.png`}
+                        alt="e-SANAD"
+                        className="h-14 md:h-16 w-auto object-contain"
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                        }}
+                    />
+                </div>
+
+                {/* Initiative Text */}
+                <p className="text-blue-800 text-sm md:text-base font-bold mb-8">
+                    An Initiative of Ministry of External Affairs
+                </p>
+
+                {/* Footer Logos */}
+                <div className="flex items-center justify-between px-4 md:px-12">
+                    {/* MEA Logo */}
+                    <img
+                        src={`${base}logos/mea-logo.png`}
+                        alt="Ministry of External Affairs"
+                        className="h-12 md:h-16 w-auto object-contain"
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                        }}
+                    />
+
+                    {/* NIC Logo */}
+                    <img
+                        src={`${base}logos/nic.png`}
+                        alt="NIC"
+                        className="h-10 md:h-14 w-auto object-contain"
+                    />
+                </div>
+
+                {/* Minimal Link to PSEB e-Sanad */}
+                <div className="mt-10">
+                    <a
+                        href="https://www.pseb.ac.in/esanad"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-700 hover:text-blue-900 text-sm underline underline-offset-2 transition-colors"
+                    >
+                        Visit e-Sanad Portal →
+                    </a>
+                </div>
+            </div>
         </main>
     );
 }
