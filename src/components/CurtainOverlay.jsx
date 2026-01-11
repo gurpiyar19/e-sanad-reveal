@@ -243,7 +243,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
                     {/* Particles moving with curtain */}
                     <div className="absolute inset-0 opacity-60 mix-blend-screen">
                         <Particles
-                            particleCount={50}
+                            particleCount={150}
                             particleColors={['#fbbf24', '#d97706', '#ffffff']}
                             speed={0.2}
                         />
@@ -273,7 +273,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
                     {/* Particles moving with curtain */}
                     <div className="absolute inset-0 opacity-60 mix-blend-screen">
                         <Particles
-                            particleCount={50}
+                            particleCount={150}
                             particleColors={['#fbbf24', '#d97706', '#ffffff']}
                             speed={0.2}
                         />
