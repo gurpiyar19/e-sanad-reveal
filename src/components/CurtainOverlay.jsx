@@ -3,8 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import LocomotiveScroll from 'locomotive-scroll';
 import GlareHover from './GlareHover';
-import GlareHover from './GlareHover';
-import Particles from './ParticlesBackground'; // Importing the pasted Particles component
+import Particles from './ParticlesBackground';
 import SplashCursor from './SplashCursor';
 import CurtainEdge, { CurtainEdgeRight } from './CurtainEdge';
 import StarBorder from './StarBorder';
@@ -243,7 +242,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
 
                     {/* Particles moving with curtain */}
                     <div className="absolute inset-0 opacity-60 mix-blend-screen">
-                        <ParticlesBackground
+                        <Particles
                             particleCount={50}
                             particleColors={['#fbbf24', '#d97706', '#ffffff']}
                             speed={0.2}
@@ -273,7 +272,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
 
                     {/* Particles moving with curtain */}
                     <div className="absolute inset-0 opacity-60 mix-blend-screen">
-                        <ParticlesBackground
+                        <Particles
                             particleCount={50}
                             particleColors={['#fbbf24', '#d97706', '#ffffff']}
                             speed={0.2}
