@@ -304,49 +304,62 @@ export default function CurtainOverlay({ onRevealComplete }) {
                         aria-label="e-Sanad Launch Screen"
                         aria-modal="true"
                     >
-                        {/* Header Row: Logo - Title - Logo */}
-                        <div className="w-full flex items-center justify-between mb-4 mt-2 px-2">
+                        {/* Header Row: Logo - Board Name - Logo */}
+                        <div className="w-full flex items-center justify-center gap-4 md:gap-6 mb-3 mt-2 px-2">
                             {/* Left Logo */}
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/punjab-govt.png`}
                                 alt="Government of Punjab"
-                                className="h-16 md:h-20 w-auto object-contain flex-shrink-0"
+                                className="h-14 md:h-16 w-auto object-contain flex-shrink-0"
                             />
 
-                            {/* Center: Digital verification text */}
-                            <div className="flex-grow flex flex-col items-center justify-center px-4">
-                                <h2 className="text-gray-900 text-base md:text-lg font-bold leading-tight text-center">
-                                    Digital verification of PSEB academic certificates
-                                    <br />through E-Sanad portal for use abroad
-                                </h2>
-                            </div>
+                            {/* Center: Board Name in Punjabi */}
+                            <h2 className="font-punjabi text-gray-900 text-base md:text-xl font-bold text-center">
+                                ਪੰਜਾਬ ਸਕੂਲ ਸਿੱਖਿਆ ਬੋਰਡ
+                            </h2>
 
                             {/* Right Logo */}
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/pseb.png`}
                                 alt="Punjab School Education Board"
-                                className="h-16 md:h-20 w-auto object-contain flex-shrink-0"
+                                className="h-14 md:h-16 w-auto object-contain flex-shrink-0"
                             />
                         </div>
 
+                        {/* Digital verification text */}
+                        <p className="text-gray-800 text-xs md:text-sm font-medium leading-tight mb-3">
+                            Digital verification of PSEB academic certificates
+                            <br />through E-Sanad portal for use abroad
+                        </p>
+
                         {/* Punjabi Inauguration Text - Black */}
-                        <p className="font-punjabi text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-1">
+                        <p className="font-punjabi text-gray-900 text-xl md:text-2xl font-bold mt-2 mb-1">
                             ਦਾ ਉਦਘਾਟਨ
                         </p>
 
                         {/* "ਵੱਲੋਂ" in small letters */}
-                        <p className="font-punjabi text-gray-600 text-sm md:text-base font-medium mb-3">
+                        <p className="font-punjabi text-gray-600 text-xs md:text-sm font-medium mb-2">
                             ਵੱਲੋਂ
                         </p>
 
                         {/* Minister's Name - Gold/Amber */}
-                        <p className="font-punjabi text-[#d97706] text-xl md:text-2xl font-bold mb-1">
+                        <p className="font-punjabi text-[#d97706] text-lg md:text-xl font-bold mb-0">
                             ਸ. ਹਰਜੋਤ ਸਿੰਘ ਬੈਂਸ ਜੀ
                         </p>
 
                         {/* Minister's Title */}
-                        <p className="font-punjabi text-gray-800 text-base md:text-lg font-medium mb-6">
+                        <p className="font-punjabi text-gray-800 text-xs md:text-sm font-medium mb-3">
                             ਸਿੱਖਿਆ ਮੰਤਰੀ, ਪੰਜਾਬ ਸਰਕਾਰ
+                        </p>
+
+                        {/* Chairman's Name - Gold/Amber */}
+                        <p className="font-punjabi text-[#d97706] text-lg md:text-xl font-bold mb-0">
+                            ਡਾ. ਅਮਰਪਾਲ ਸਿੰਘ, <span className="text-sm md:text-base">I.A.S. (Retd.)</span>
+                        </p>
+
+                        {/* Chairman's Title */}
+                        <p className="font-punjabi text-gray-800 text-xs md:text-sm font-medium mb-4">
+                            ਚੇਅਰਮੈਨ ਪੰਜਾਬ ਸਕੂਲ ਸਿੱਖਿਆ ਬੋਰਡ
                         </p>
 
                         {/* Launch Button */}
