@@ -273,46 +273,59 @@ export default function CurtainOverlay({ onRevealComplete }) {
                 >
                     <div
                         ref={centerCardRef}
-                        onMouseMove={handleCardMouseMove}
-                        onMouseLeave={handleCardMouseLeave}
-                        className="p-5 md:p-8 glass-card text-center flex flex-col items-center"
+                        className="p-6 md:p-8 glass-card text-center flex flex-col items-center w-full relative"
                         style={{ transformStyle: 'preserve-3d' }}
                         role="dialog"
                         aria-label="e-Sanad Launch Screen"
                         aria-modal="true"
                     >
-                        {/* Logos - No spin animation */}
-                        <div className="w-full flex justify-between items-start mb-4 mt-2">
+                        {/* Top Logos Row */}
+                        <div className="w-full flex justify-between items-start mb-6">
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/punjab-govt.png`}
                                 alt="Government of Punjab"
-                                className="h-12 md:h-14 w-auto object-contain transition-opacity duration-300 hover:opacity-80"
+                                className="h-14 md:h-16 w-auto object-contain"
                             />
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/pseb.png`}
                                 alt="Punjab School Education Board"
-                                className="h-12 md:h-14 w-auto object-contain transition-opacity duration-300 hover:opacity-80"
+                                className="h-14 md:h-16 w-auto object-contain"
                             />
                         </div>
 
-                        {/* Digital verification heading - TOP */}
-                        <h2 className="font-bold text-gray-800 text-base md:text-lg text-center leading-relaxed mb-4 max-w-md mx-auto">
-                            Digital verification of PSEB academic certificates through<br />E-Sanad portal for use abroad
-                        </h2>
+                        {/* Main Title Block */}
+                        <div className="space-y-2 mb-4 max-w-2xl mx-auto">
+                            <h2 className="text-gray-900 text-xl md:text-2xl font-bold font-ceremonial">
+                                Punjab School Education Board
+                            </h2>
+                            <h3 className="text-gray-800 text-lg md:text-xl font-semibold tracking-wide">
+                                Launches
+                            </h3>
+                        </div>
 
-                        {/* Inauguration Text - Punjabi font with Gold/Amber */}
-                        <p className="font-punjabi text-xl md:text-2xl font-semibold mb-2 underline underline-offset-4 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
-                            ਦਾ ਉਦਘਾਟਨ
+                        {/* Description Block */}
+                        <h4 className="text-gray-900 text-lg md:text-xl font-bold leading-relaxed max-w-2xl mb-2">
+                            End To End Online Verification of PSEB Educational Certificates
+                        </h4>
+
+                        <p className="text-gray-700 font-semibold mb-1">
+                            Through
                         </p>
 
-                        {/* Minister Name - Punjabi font */}
-                        <p className="font-punjabi text-gray-800 text-base md:text-lg font-medium leading-relaxed mb-5">
-                            ਸ. ਹਰਜੋਤ ਸਿੰਘ ਬੈਂਸ ਜੀ<br />
-                            ਸਿੱਖਿਆ ਮੰਤਰੀ, ਪੰਜਾਬ ਸਰਕਾਰ
+                        {/* Stylized e-Sanad Portal Text */}
+                        <div className="my-3 transform scale-110">
+                            <span className="font-handwriting text-4xl md:text-6xl text-gray-800 mr-2">e - </span>
+                            <span className="font-handwriting text-4xl md:text-6xl text-[#ea580c] mr-2">Sanad</span>
+                            <span className="font-handwriting text-4xl md:text-6xl text-[#0ea5e9]">Portal</span>
+                        </div>
+
+                        {/* Sub-text */}
+                        <p className="text-gray-800 text-sm md:text-base font-medium max-w-xl mx-auto mb-6">
+                            (Online Attestation and Apostille of PSEB Educational Certificates for use Abroad)
                         </p>
 
-                        {/* Launch Button with Glare Hover Effect - Gold Theme */}
-                        <div className="my-3">
+                        {/* Launch Button */}
+                        <div className="mb-6 relative z-50">
                             <GlareHover
                                 onClick={handleReveal}
                                 width="auto"
@@ -325,35 +338,71 @@ export default function CurtainOverlay({ onRevealComplete }) {
                                 glareAngle={-45}
                                 glareSize={200}
                                 transitionDuration={600}
-                                className="px-10 py-4 shadow-[0_16px_50px_rgba(245,158,11,0.35)] hover:shadow-[0_20px_60px_rgba(245,158,11,0.45)]"
+                                className="px-10 py-3 shadow-[0_10px_30px_rgba(245,158,11,0.3)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.4)]"
                             >
-                                <span className="text-white text-lg md:text-xl font-semibold tracking-wide drop-shadow-sm">
+                                <span className="text-white text-lg font-bold tracking-wide">
                                     Launch
                                 </span>
                             </GlareHover>
                         </div>
 
-                        {/* Date - Punjabi font */}
-                        <p className="font-punjabi text-gray-700 text-sm md:text-base font-medium mb-2">
-                            ਸੋਮਵਾਰ, 12 ਜਨਵਰੀ 2026
+                        {/* Date */}
+                        <p className="text-gray-900 font-bold text-lg mb-8">
+                            Date: 12th January 2026
                         </p>
 
-                        {/* E-Sanad - below date */}
-                        <p className="text-gray-800 text-base md:text-lg font-bold mb-5">
-                            E-Sanad
-                        </p>
+                        {/* Footer Logos Grid */}
+                        <div className="w-full grid grid-cols-3 gap-4 items-end border-t border-gray-200 pt-4 mt-auto">
 
-                        {/* Footer with NIC - glow pulse */}
-                        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3 pt-3 border-t border-amber-200/50 mt-2">
-                            <img
-                                src={`${import.meta.env.BASE_URL}logos/nic.png`}
-                                alt="National Informatics Centre"
-                                className="h-10 md:h-12 w-auto object-contain glow-pulse"
-                            />
-                            <p className="text-gray-700 text-xs md:text-sm text-center md:text-left">
-                                <strong className="block font-semibold">An initiative of</strong>
-                                Ministry of External Affairs
-                            </p>
+                            {/* Left: MEA Logo (Placeholder) */}
+                            <div className="flex flex-col items-center justify-end">
+                                <img
+                                    /* User needs to add mea-logo.png */
+                                    src={`${import.meta.env.BASE_URL}logos/mea-logo.png`}
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'block';
+                                    }}
+                                    alt="Ministry of External Affairs"
+                                    className="h-12 md:h-16 w-auto object-contain mb-1"
+                                />
+                                <div className="hidden text-xs text-gray-400 text-center border p-1 rounded">
+                                    [Add mea-logo.png]
+                                </div>
+                                <span className="text-[10px] text-gray-600 font-bold text-center leading-tight">
+                                    Ministry of External<br />Affairs
+                                </span>
+                            </div>
+
+                            {/* Center: e-Sanad Box Logo & Initiative Text */}
+                            <div className="flex flex-col items-center justify-end">
+                                <img
+                                    /* User needs to add esanad-logo.png */
+                                    src={`${import.meta.env.BASE_URL}logos/esanad-logo.png`}
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'flex';
+                                    }}
+                                    alt="e-Sanad"
+                                    className="h-10 md:h-12 w-auto object-contain mb-2"
+                                />
+                                {/* Fallback for e-Sanad logo if missing */}
+                                <div className="hidden h-10 w-24 bg-gray-900 items-center justify-center text-amber-500 font-bold text-sm mb-2 rounded">
+                                    e-SANAD
+                                </div>
+                                <p className="text-gray-800 text-[10px] md:text-xs font-bold text-center leading-tight">
+                                    An Initiative of Ministry of External Affairs
+                                </p>
+                            </div>
+
+                            {/* Right: NIC Logo */}
+                            <div className="flex flex-col items-center justify-end">
+                                <img
+                                    src={`${import.meta.env.BASE_URL}logos/nic.png`}
+                                    alt="NIC"
+                                    className="h-10 md:h-12 w-auto object-contain"
+                                />
+                            </div>
                         </div>
                     </div>
                 </StarBorder>
