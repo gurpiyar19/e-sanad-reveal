@@ -286,28 +286,31 @@ export default function CurtainOverlay({ onRevealComplete }) {
                         aria-label="e-Sanad Launch Screen"
                         aria-modal="true"
                     >
-                        {/* Top Logos Row */}
-                        <div className="w-full flex justify-between items-start mb-6">
+                        {/* Header Row: Logo - Title - Logo */}
+                        <div className="w-full flex items-center justify-between mb-4 mt-2 px-2">
+                            {/* Left Logo */}
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/punjab-govt.png`}
                                 alt="Government of Punjab"
-                                className="h-16 md:h-20 w-auto object-contain"
+                                className="h-16 md:h-20 w-auto object-contain flex-shrink-0"
                             />
+
+                            {/* Center Title */}
+                            <div className="flex-grow flex flex-col items-center justify-center px-4">
+                                <h2 className="text-gray-900 text-xl md:text-2xl font-bold font-ceremonial leading-tight mb-1">
+                                    Punjab School Education Board
+                                </h2>
+                                <h3 className="text-gray-800 text-lg md:text-xl font-semibold tracking-wide leading-tight">
+                                    Launches
+                                </h3>
+                            </div>
+
+                            {/* Right Logo */}
                             <img
                                 src={`${import.meta.env.BASE_URL}logos/pseb.png`}
                                 alt="Punjab School Education Board"
-                                className="h-16 md:h-20 w-auto object-contain"
+                                className="h-16 md:h-20 w-auto object-contain flex-shrink-0"
                             />
-                        </div>
-
-                        {/* Main Title Block */}
-                        <div className="space-y-2 mb-4 max-w-2xl mx-auto">
-                            <h2 className="text-gray-900 text-xl md:text-2xl font-bold font-ceremonial">
-                                Punjab School Education Board
-                            </h2>
-                            <h3 className="text-gray-800 text-lg md:text-xl font-semibold tracking-wide">
-                                Launches
-                            </h3>
                         </div>
 
                         {/* Description Block */}
