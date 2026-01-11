@@ -292,7 +292,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
                     speed="5s"
                     borderWidth="3px"
                     borderRadius="32px"
-                    className="relative z-[10] w-[95%] max-w-[800px] mx-auto"
+                    className="relative z-[10] w-[85%] max-w-[650px] mx-auto"
                 >
                     <div
                         ref={centerCardRef}
