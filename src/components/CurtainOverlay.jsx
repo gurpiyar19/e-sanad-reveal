@@ -3,7 +3,10 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import LocomotiveScroll from 'locomotive-scroll';
 import GlareHover from './GlareHover';
-import Particles from './Particles';
+import GlareHover from './GlareHover';
+// import Particles from './Particles'; // Removing old particles
+import ParticlesBackground from './ParticlesBackground';
+import SplashCursor from './SplashCursor';
 import CurtainEdge, { CurtainEdgeRight } from './CurtainEdge';
 import StarBorder from './StarBorder';
 
@@ -209,6 +212,8 @@ export default function CurtainOverlay({ onRevealComplete }) {
             data-scroll-container
             className="fixed inset-0 z-[1000] overflow-hidden"
         >
+            <SplashCursor />
+
             {/* Scroll Progress Indicator */}
             <div className="scroll-indicator">
                 <div
@@ -223,8 +228,8 @@ export default function CurtainOverlay({ onRevealComplete }) {
                 data-scroll-section
                 style={{ background: 'transparent' }}
             >
-                {/* Floating Particles - Reduced count for performance */}
-                <Particles count={15} />
+                {/* Floating Particles - Removed in favor of ParticlesBackground inside curtains */}
+                {/* <Particles count={15} /> */}
 
                 {/* Left Curtain - Full height, no header */}
                 <div
@@ -236,6 +241,16 @@ export default function CurtainOverlay({ onRevealComplete }) {
                 >
                     {/* Enhanced velvet with animated lighting */}
                     <div className="absolute inset-0 curtain-fabric-enhanced" />
+
+                    {/* Particles moving with curtain */}
+                    <div className="absolute inset-0 opacity-60 mix-blend-screen">
+                        <ParticlesBackground
+                            particleCount={50}
+                            particleColors={['#fbbf24', '#d97706', '#ffffff']}
+                            speed={0.2}
+                        />
+                    </div>
+
                     {/* Folds overlay */}
                     <div className="absolute inset-0 curtain-folds-left" />
                     {/* SVG Edge */}
@@ -256,6 +271,16 @@ export default function CurtainOverlay({ onRevealComplete }) {
                 >
                     {/* Enhanced velvet with animated lighting */}
                     <div className="absolute inset-0 curtain-fabric-enhanced" />
+
+                    {/* Particles moving with curtain */}
+                    <div className="absolute inset-0 opacity-60 mix-blend-screen">
+                        <ParticlesBackground
+                            particleCount={50}
+                            particleColors={['#fbbf24', '#d97706', '#ffffff']}
+                            speed={0.2}
+                        />
+                    </div>
+
                     {/* Folds overlay */}
                     <div className="absolute inset-0 curtain-folds-right" />
                     {/* SVG Edge */}
@@ -274,7 +299,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
                     speed="5s"
                     borderWidth="3px"
                     borderRadius="32px"
-                    className="relative z-[10] w-[88%] max-w-[650px] mx-auto"
+                    className="relative z-[10] w-[95%] max-w-[800px] mx-auto"
                 >
                     <div
                         ref={centerCardRef}
@@ -297,7 +322,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
 
                             {/* Center Title */}
                             <div className="flex-grow flex flex-col items-center justify-center px-4">
-                                <h2 className="text-gray-900 text-xl md:text-2xl font-bold font-ceremonial leading-tight mb-1">
+                                <h2 className="text-gray-900 text-xl md:text-3xl font-bold font-ceremonial leading-tight mb-1 whitespace-nowrap">
                                     Punjab School Education Board
                                 </h2>
                                 <h3 className="text-gray-800 text-lg md:text-xl font-semibold tracking-wide leading-tight">
@@ -314,7 +339,7 @@ export default function CurtainOverlay({ onRevealComplete }) {
                         </div>
 
                         {/* Description Block */}
-                        <h4 className="text-gray-900 text-lg md:text-xl font-bold leading-relaxed max-w-2xl mb-2">
+                        <h4 className="text-gray-900 text-lg md:text-2xl font-bold leading-relaxed w-full mb-2">
                             End To End Online Verification of PSEB Educational Certificates
                         </h4>
 
@@ -324,18 +349,18 @@ export default function CurtainOverlay({ onRevealComplete }) {
 
                         {/* Stylized e-Sanad Portal Text */}
                         <div className="my-3 transform scale-110">
-                            <span className="font-handwriting text-4xl md:text-6xl text-gray-800 mr-2">e - </span>
-                            <span className="font-handwriting text-4xl md:text-6xl text-[#ea580c] mr-2">Sanad</span>
-                            <span className="font-handwriting text-4xl md:text-6xl text-[#0ea5e9]">Portal</span>
+                            <span className="font-handwriting text-5xl md:text-7xl text-gray-800 mr-3">e - </span>
+                            <span className="font-handwriting text-5xl md:text-7xl text-[#ea580c] mr-3">Sanad</span>
+                            <span className="font-handwriting text-5xl md:text-7xl text-[#0ea5e9]">Portal</span>
                         </div>
 
-                        {/* Sub-text */}
-                        <p className="text-gray-800 text-sm md:text-base font-medium max-w-xl mx-auto mb-6">
+                        {/* Sub-text - Forced Single Line */}
+                        <p className="text-gray-800 text-sm md:text-base font-medium w-full whitespace-nowrap mb-8 overflow-visible">
                             (Online Attestation and Apostille of PSEB Educational Certificates for use Abroad)
                         </p>
 
                         {/* Launch Button */}
-                        <div className="mb-6 relative z-50">
+                        <div className="mb-8 relative z-50">
                             <GlareHover
                                 onClick={handleReveal}
                                 width="auto"
@@ -348,23 +373,23 @@ export default function CurtainOverlay({ onRevealComplete }) {
                                 glareAngle={-45}
                                 glareSize={200}
                                 transitionDuration={600}
-                                className="px-10 py-3 shadow-[0_10px_30px_rgba(245,158,11,0.3)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.4)]"
+                                className="px-12 py-4 shadow-[0_10px_30px_rgba(245,158,11,0.3)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.4)]"
                             >
-                                <span className="text-white text-lg font-bold tracking-wide">
+                                <span className="text-white text-xl font-bold tracking-wide">
                                     Launch
                                 </span>
                             </GlareHover>
                         </div>
 
                         {/* Date */}
-                        <p className="text-gray-900 font-bold text-lg mb-8">
+                        <p className="text-gray-900 font-bold text-xl mb-10">
                             Date: 12th January 2026
                         </p>
 
-                        {/* Footer Logos Grid */}
-                        <div className="w-full grid grid-cols-3 gap-4 items-end border-t border-gray-200 pt-4 mt-auto">
+                        {/* Footer Logos Grid - Perfectly Symmetrical */}
+                        <div className="w-full grid grid-cols-3 items-end border-t border-gray-200 pt-6 mt-auto">
 
-                            {/* Left: MEA Logo (Placeholder) */}
+                            {/* Left: MEA Logo */}
                             <div className="flex flex-col items-center justify-end">
                                 <img
                                     /* User needs to add mea-logo.png */
@@ -374,17 +399,17 @@ export default function CurtainOverlay({ onRevealComplete }) {
                                         e.target.nextSibling.style.display = 'block';
                                     }}
                                     alt="Ministry of External Affairs"
-                                    className="h-12 md:h-16 w-auto object-contain mb-1"
+                                    className="h-14 md:h-16 w-auto object-contain mb-2"
                                 />
                                 <div className="hidden text-xs text-gray-400 text-center border p-1 rounded">
                                     [Add mea-logo.png]
                                 </div>
-                                <span className="text-[10px] text-gray-600 font-bold text-center leading-tight">
+                                <span className="text-[11px] text-gray-800 font-bold text-center leading-tight">
                                     Ministry of External<br />Affairs
                                 </span>
                             </div>
 
-                            {/* Center: e-Sanad Box Logo & Initiative Text */}
+                            {/* Center: e-Sanad Box Logo */}
                             <div className="flex flex-col items-center justify-end">
                                 <img
                                     /* User needs to add esanad-logo.png */
@@ -394,13 +419,13 @@ export default function CurtainOverlay({ onRevealComplete }) {
                                         e.target.nextSibling.style.display = 'flex';
                                     }}
                                     alt="e-Sanad"
-                                    className="h-10 md:h-12 w-auto object-contain mb-2"
+                                    className="h-12 md:h-14 w-auto object-contain mb-2"
                                 />
                                 {/* Fallback for e-Sanad logo if missing */}
                                 <div className="hidden h-10 w-24 bg-gray-900 items-center justify-center text-amber-500 font-bold text-sm mb-2 rounded">
                                     e-SANAD
                                 </div>
-                                <p className="text-gray-800 text-[10px] md:text-xs font-bold text-center leading-tight">
+                                <p className="text-gray-800 text-[11px] md:text-xs font-bold text-center leading-tight">
                                     An Initiative of Ministry of External Affairs
                                 </p>
                             </div>
@@ -410,8 +435,9 @@ export default function CurtainOverlay({ onRevealComplete }) {
                                 <img
                                     src={`${import.meta.env.BASE_URL}logos/nic.png`}
                                     alt="NIC"
-                                    className="h-10 md:h-12 w-auto object-contain"
+                                    className="h-12 md:h-14 w-auto object-contain mb-2"
                                 />
+                                {/* Placeholder text to balance the symmetry visually if needed, usually NIC just has the logo */}
                             </div>
                         </div>
                     </div>
