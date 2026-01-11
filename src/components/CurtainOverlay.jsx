@@ -4,8 +4,7 @@ import gsap from 'gsap';
 import LocomotiveScroll from 'locomotive-scroll';
 import GlareHover from './GlareHover';
 import GlareHover from './GlareHover';
-// import Particles from './Particles'; // Removing old particles
-import ParticlesBackground from './ParticlesBackground';
+import Particles from './ParticlesBackground'; // Importing the pasted Particles component
 import SplashCursor from './SplashCursor';
 import CurtainEdge, { CurtainEdgeRight } from './CurtainEdge';
 import StarBorder from './StarBorder';
